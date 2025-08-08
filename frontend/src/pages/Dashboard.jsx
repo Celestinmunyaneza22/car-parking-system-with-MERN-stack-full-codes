@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate , Link} from 'react-router-dom';
 import axios from 'axios';
 
 const Dashboard = () => {
@@ -198,6 +198,22 @@ const handleDeleteCar = async (carId) => {
     );
   }
 return (
+    <>
+    <Link to="/reserve" className="text-blue-500 hover:underline mr-2">
+  Make a Reservation
+</Link>
+<Link
+  to="/my-reservations"
+  className="text-blue-600 hover:underline mr-2"
+>
+  View My Reservations
+</Link>
+<Link to="/add-carpark" className="text-blue-600 hover:underline mr-2">
+  Add Car Park
+</Link>
+<Link to="/carparks" className="text-blue-600 hover:underline">
+  View Car Parks
+</Link>
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
       <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
         <h1 className="text-2xl font-bold mb-4">Welcome, {profile.fullname}!</h1>
@@ -345,6 +361,7 @@ return (
 )}
       </div>
     </div>
+    </>
   );
 };
 
