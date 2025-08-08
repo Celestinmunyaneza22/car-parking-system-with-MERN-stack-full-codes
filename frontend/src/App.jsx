@@ -7,6 +7,9 @@ import ReservationForm from "./pages/ReservationForm";
 import MyReservations from "./pages/MyReservations";
 import AddCarPark from "./pages/AddCarPark";
 import CarParkList from "./pages/CarParkList";
+import PaymentPage from "./pages/PaymentPage";
+import ReservationReport from "./pages/ReservationReport";
+import PaymentReport from "./pages/PaymentReport";
 
 function App() {
   return (
@@ -23,6 +26,9 @@ function App() {
       <Route path="/my-reservations" element={<MyReservations />} />
       <Route path="/add-carpark" element={<AddCarPark />} />
       <Route path="/carparks" element={<CarParkList />} />
+      <Route path="/payment" element={<PaymentPage />} />
+      <Route path="/report/reservations" element={<ReservationReport />} />
+      <Route path="/report/payments" element={<PaymentReport />} />
       </Routes>
     </Router>
   );

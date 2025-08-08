@@ -5,6 +5,8 @@ const CarPark = require("../models/CarPark");
 const { protect } = require("../middleware/authMiddleware");
 
 // Create a reservation
+const hourlyRate = 2.5; // USD per hour (or any currency)
+
 router.post("/", protect, async (req, res) => {
   try {
     const { car, carPark, startTime, endTime } = req.body;
@@ -14,18 +16,22 @@ router.post("/", protect, async (req, res) => {
       return res.status(400).json({ message: "No available slots" });
     }
 
-    // Create reservation
+    const start = new Date(startTime);
+    const end = new Date(endTime);
+    const hours = Math.ceil((end - start) / (1000 * 60 * 60));
+    const price = hours * hourlyRate;
+
     const reservation = new Reservation({
       user: req.user._id,
       car,
       carPark,
       startTime,
       endTime,
+      price, // save price (add to model if needed)
     });
 
     await reservation.save();
 
-    // Update slot count
     park.availableSlots -= 1;
     await park.save();
 
@@ -76,3 +82,5 @@ router.put("/:id/cancel", protect, async (req, res) => {
 });
 
 module.exports = router;
+
+

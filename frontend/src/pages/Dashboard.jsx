@@ -211,9 +211,11 @@ return (
 <Link to="/add-carpark" className="text-blue-600 hover:underline mr-2">
   Add Car Park
 </Link>
-<Link to="/carparks" className="text-blue-600 hover:underline">
+<Link to="/carparks" className="text-blue-600 hover:underline mr-2">
   View Car Parks
 </Link>
+<Link to="/report/reservations" className="text-blue-600 underline mr-2">Reservation Report</Link>
+<Link to="/report/payments" className="text-blue-600 underline ml-4">Payment Report</Link>
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
       <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
         <h1 className="text-2xl font-bold mb-4">Welcome, {profile.fullname}!</h1>

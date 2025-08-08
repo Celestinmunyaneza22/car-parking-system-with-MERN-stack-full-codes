@@ -53,26 +53,27 @@ const ReservationForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      const res = await axios.post(
-        "http://localhost:5000/api/reservations",
-        formData,
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
+    // try {
+    //   const res = await axios.post(
+    //     "http://localhost:5000/api/reservations",
+    //     formData,
+    //     {
+    //       headers: { Authorization: `Bearer ${token}` },
+    //     }
+    //   );
 
-      setMessage("Reservation created successfully!");
-      setError("");
-      setFormData({ car: "", carPark: "", startTime: "", endTime: "" });
+    //   setMessage("Reservation created successfully!");
+    //   setError("");
+    //   setFormData({ car: "", carPark: "", startTime: "", endTime: "" });
 
-      // Redirect or show confirmation
-      setTimeout(() => navigate("/dashboard"), 1500);
-    } catch (err) {
-      console.error(err);
-      setError(err.response?.data?.message || "Reservation failed.");
-      setMessage("");
-    }
+    //   // Redirect or show confirmation
+    //   setTimeout(() => navigate("/dashboard"), 1500);
+    // } catch (err) {
+    //   console.error(err);
+    //   setError(err.response?.data?.message || "Reservation failed.");
+    //   setMessage("");
+    // }
+    navigate("/payment", { state: formData });
   };
 
   return (
