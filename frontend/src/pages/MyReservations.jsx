@@ -53,12 +53,9 @@ const MyReservations = () => {
   return (
     <div className="min-h-screen p-6 bg-gray-100">
       <h1 className="text-2xl font-bold mb-6 text-center">My Reservations</h1>
-       <Link
-         to="/dashboard"
-         className="text-blue-600 hover:underline"
-       >
-         Back
-       </Link>
+      <Link to="/dashboard" className="text-blue-500 hover:underline">
+          <button className="bg-gray-600 text-white px-3 py-1 rounded hover:bg-gray-700 mt-2">Back</button>
+        </Link>
       {message && (
         <div className="text-center text-blue-600 mb-4">{message}</div>
       )}

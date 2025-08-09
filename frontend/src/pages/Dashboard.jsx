@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate , Link} from 'react-router-dom';
 import axios from 'axios';
+import Navbar from './Navbar'; // Adjust path based on your file structure
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -199,7 +200,8 @@ const handleDeleteCar = async (carId) => {
   }
 return (
     <>
-    <Link to="/reserve" className="text-blue-500 hover:underline mr-2">
+<Navbar />
+{/* <Link to="/reserve" className="text-blue-500 hover:underline mr-2">
   Make a Reservation
 </Link>
 <Link
@@ -215,9 +217,9 @@ return (
   View Car Parks
 </Link>
 <Link to="/report/reservations" className="text-blue-600 underline mr-2">Reservation Report</Link>
-<Link to="/report/payments" className="text-blue-600 underline ml-4">Payment Report</Link>
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
+<Link to="/report/payments" className="text-blue-600 underline ml-4">Payment Report</Link> */}
+    <div className=" min-h-screen bg-gray-100 flex items-center justify-center">
+      <div className="bg-white p-8 rounded shadow-md w-full max-w-mx">
         <h1 className="text-2xl font-bold mb-4">Welcome, {profile.fullname}!</h1>
         <p className="mb-4">Email: {profile.email}</p>
 
@@ -263,13 +265,6 @@ return (
           </button>
         </form>
        <hr/>
-        <button
-          onClick={handleLogout}
-          className="w-full mt-6 bg-red-600 text-white py-2 rounded hover:bg-red-700"
-        >
-          Logout
-        </button>
-        <hr/>
 
         {/* Car list */}
 {cars.length > 0 ? (
@@ -307,7 +302,7 @@ return (
       <div className="flex gap-2">
         <button
           type="submit"
-          className="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700"
+          className="bg-green-600 text-white px-6 py-1 rounded hover:bg-green-700"
         >
           Save
         </button>
@@ -361,6 +356,12 @@ return (
 ) : (
   <p className="mt-8 text-gray-500 italic">No cars added yet.</p>
 )}
+         <button
+          onClick={handleLogout}
+          className="bg-red-600 text-white mt-4 px-3 py-1 rounded hover:bg-red-700"
+        >
+          Logout
+        </button>
       </div>
     </div>
     </>
